@@ -78,6 +78,97 @@ body {
 
 .book-display-container {
     flex: 1;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 36px;
+
+    padding: 0 48px;
+}
+
+.book-card {
+    width: 100%;
+    height: 256px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: var(--color-foreground);
+    border: 0;
+    border-radius: 12px 12px 3px 3px;
+
+    position: relative;
+
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+.book-card > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+}
+
+.book-card > div:nth-child(odd):not(:first-child)
+{
+    background-color: #1e293b;
+}
+
+.book-card > div:nth-child(even)
+{
+    background-color: var(--color-foreground);
+    color: var(--color-highlight);
+}
+
+.book-card > .card-delete {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 10%;
+    aspect-ratio: 1 / 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    background-color: var(--color-highlight);
+    border-radius: 0 12px 0 6px;
+
+    /* Prevent selecting text */
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+.card-delete:hover {
+    border: 4px solid var(--color-text);
+}
+
+.card-delete:active {
+    background-color: var(--color-text);
+}
+
+.card-title {
+    flex: 2;
+
+    border-radius: 12px;
+}
+
+.card-author {
+    flex: 2;
+}
+
+.card-pages {
+    flex: 1;
+}
+
+.card-read {
+    flex: 1;
+
+    gap: 4px;
 }
 
 .header {
@@ -86,6 +177,8 @@ body {
     font-size: 64px;
     line-height: 64px;
     font-weight: bold;
+
+    color: var(--color-highlight);
 }
 
 .footer {
