@@ -1,11 +1,19 @@
 let library = [];
 
-function Book(author, title, pages, read) 
+class Book
 {
-    this.author = author;
-    this.title = title;
-    this.pages = pages;
-    this.read = read;
+    author;
+    title;
+    pages;
+    read;
+
+    constructor(author, title, pages, read)
+    {
+        this.author = author;
+        this.title = title;
+        this.pages = pages;
+        this.read = read;
+    }
 }
 
 function addBookToLibrary(author, title, pages, read) 
@@ -37,14 +45,11 @@ function displayBooks()
         const bookCard = createCardFromBookObject(book, i);
         // Delete listener
         bookCard.querySelector(".card-delete").addEventListener("click", () => {
-            console.log("ALO" + i);
             removeBook(i);
         });
         // Read listener
         bookCard.querySelector(".card-read").getElementsByTagName("input")[0].addEventListener("change", () => {
-            console.log("Togal" + i);
             toggleReadBook(i);
-            console.log(library);
         });
         bookDisplayContainer.appendChild(bookCard);
     }
